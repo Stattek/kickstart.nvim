@@ -970,6 +970,27 @@ require('lazy').setup({
     },
   },
 
+  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+  {
+    'baliestri/aura-theme',
+    lazy = false,
+    priority = 1000,
+    config = function(plugin)
+      vim.opt.rtp:append(plugin.dir .. '/packages/neovim')
+      vim.cmd [[colorscheme aura-dark]]
+    end,
+  },
+  { 'EdenEast/nightfox.nvim' }, -- nightfox themes https://github.com/EdenEast/nightfox.nvim
+  {
+    'zaldih/themery.nvim',
+    lazy = false,
+    config = function()
+      require('themery').setup {
+        themes = { 'gruvbox', 'tokyonight', 'aura-dark', 'nightfox', 'dayfox', 'dawnfox', 'duskfox', 'nordfox', 'terafox', 'carbonfox' },
+        livePreview = true,
+      }
+    end,
+  },
   {
     'romgrk/barbar.nvim',
     dependencies = {
