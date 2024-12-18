@@ -961,6 +961,10 @@ require('lazy').setup({
     config = true,
     opts = ...,
   },
+  {
+    'olimorris/onedarkpro.nvim',
+    priority = 1000, -- Ensure it loads first
+  },
 
   {
     'nvim-neo-tree/neo-tree.nvim',
@@ -989,7 +993,21 @@ require('lazy').setup({
     lazy = false,
     config = function()
       require('themery').setup {
-        themes = { 'gruvbox', 'tokyonight', 'aura-dark', 'nightfox', 'dayfox', 'dawnfox', 'duskfox', 'nordfox', 'terafox', 'carbonfox' },
+        themes = {
+          'gruvbox',
+          'tokyonight',
+          'aura-dark',
+          'nightfox',
+          'dayfox',
+          'dawnfox',
+          'duskfox',
+          'nordfox',
+          'terafox',
+          'carbonfox',
+          'onedark',
+          'onedark_dark',
+          'onedark_vivid',
+        },
         livePreview = true,
       }
     end,
