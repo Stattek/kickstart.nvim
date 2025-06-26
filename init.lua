@@ -121,6 +121,12 @@ end)
 -- Enable break indent
 vim.o.breakindent = true
 
+vim.o.tabstop = 4 -- a tab character looks like 4 spaces
+vim.o.expandtab = true -- pressing tab inserts spaces instead of tabs
+vim.o.softtabstop = 4 -- number of spaces inserted instead of a tab
+vim.o.shiftwidth = 4 -- number of spaces inserted when indenting
+vim.o.wildmode = 'full'
+
 -- Save undo history
 vim.o.undofile = true
 
