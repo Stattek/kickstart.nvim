@@ -1004,6 +1004,9 @@ require('lazy').setup({
   --   lazy = false, -- This plugin is already lazy
   -- },
 
+  -- THEMES_BEGIN
+  -- The lines below are a little cursed, the final one in this list will apply as the default theme
+  -- if it has `priority = 1000`
   {
     'ellisonleao/gruvbox.nvim',
     priority = 1000,
@@ -1014,6 +1017,7 @@ require('lazy').setup({
     'olimorris/onedarkpro.nvim',
     priority = 1000, -- Ensure it loads first
   },
+  -- THEMES_END
 
   {
     'nvim-neo-tree/neo-tree.nvim',
