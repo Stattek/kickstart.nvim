@@ -1,5 +1,15 @@
 # kickstart.nvim
 
+## MY_CUSTOM_NOTES
+
+Requirements:
+- `rustc`, downloaded through `rustup`
+- `clangd`, version I use is 18.1.3
+- `ripgrep`
+- `fd-find`
+- install the Ubuntu nerd font (or another one)
+- Note: there are other dependencies for Kickstart listed below
+
 ## Introduction
 
 A starting point for Neovim that is:
