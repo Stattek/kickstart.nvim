@@ -1015,11 +1015,11 @@ require('lazy').setup({
   -- you can continue same window with `<space>sr` which resumes last telescope search
 
   -- NOTE: These are my plugins
-  {
-    'mrcjkb/rustaceanvim',
-    version = '^5', -- Recommended
-    lazy = false, -- This plugin is already lazy
-  },
+  -- {
+  --  'mrcjkb/rustaceanvim',
+  --   version = '^5', -- Recommended
+  --   lazy = false, -- This plugin is already lazy
+  -- },
 
   {
     'ellisonleao/gruvbox.nvim',
