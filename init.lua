@@ -127,6 +127,12 @@ vim.o.softtabstop = 4 -- number of spaces inserted instead of a tab
 vim.o.shiftwidth = 4 -- number of spaces inserted when indenting
 vim.o.wildmode = 'full'
 
+-- automatically turn on hints, kinda buggy for rust, maybe better to
+-- just manually turn on inlay hints when editing a file
+-- if vim.lsp.inlay_hint then
+--   vim.lsp.inlay_hint.enable(true, { 0 })
+-- end
+
 -- Save undo history
 vim.o.undofile = true
 
@@ -863,7 +869,7 @@ require('lazy').setup({
       completion = {
         -- By default, you may press `<c-space>` to show the documentation.
         -- Optionally, set `auto_show = true` to show the documentation after a delay.
-        documentation = { auto_show = false, auto_show_delay_ms = 500 },
+        documentation = { auto_show = true, auto_show_delay_ms = 500 },
       },
 
       sources = {
@@ -1074,6 +1080,9 @@ require('lazy').setup({
         livePreview = true,
       }
     end,
+  },
+  {
+    'puremourning/vimspector',
   },
   {
     'romgrk/barbar.nvim',
