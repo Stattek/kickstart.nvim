@@ -220,6 +220,51 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
+-- START_CUSTOM_KEYMAPS
+-- WARNING: My custom debug keymaps may conflict with builtin keymaps
+vim.keymap.set('n', '<F5>', function()
+  require('dap').continue()
+end)
+vim.keymap.set('n', '<F10>', function()
+  require('dap').step_over()
+end)
+vim.keymap.set('n', '<F11>', function()
+  require('dap').step_into()
+end)
+vim.keymap.set('n', '<F12>', function()
+  require('dap').step_out()
+end)
+vim.keymap.set('n', '<Leader>b', function()
+  require('dap').toggle_breakpoint()
+end, { desc = 'Toggle Breakpoint' })
+vim.keymap.set('n', '<Leader>B', function()
+  require('dap').set_breakpoint()
+end, { desc = 'Breakpoint' })
+vim.keymap.set('n', '<Leader>lp', function()
+  require('dap').set_breakpoint(nil, nil, vim.fn.input 'Log point message: ')
+end, { desc = 'Debugger Set Breakpoint With Log Message' })
+vim.keymap.set('n', '<Leader>dr', function()
+  require('dap').repl.open()
+end, { desc = 'Debug Run' })
+vim.keymap.set('n', '<Leader>dl', function()
+  require('dap').run_last()
+end, { desc = 'Run Last Debug Config' })
+vim.keymap.set({ 'n', 'v' }, '<Leader>dh', function()
+  require('dap.ui.widgets').hover()
+end, { desc = 'Debugger Hover Open' })
+vim.keymap.set({ 'n', 'v' }, '<Leader>dp', function()
+  require('dap.ui.widgets').preview()
+end, { desc = 'Debugger Open Preview' })
+vim.keymap.set('n', '<Leader>df', function()
+  local widgets = require 'dap.ui.widgets'
+  widgets.centered_float(widgets.frames)
+end, { desc = 'Debugger Frames' })
+vim.keymap.set('n', '<Leader>ds', function()
+  local widgets = require 'dap.ui.widgets'
+  widgets.centered_float(widgets.scopes)
+end, { desc = 'Debugger Scopes' })
+-- END_CUSTOM_KEYMAPS
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -1082,7 +1127,8 @@ require('lazy').setup({
     end,
   },
   {
-    'puremourning/vimspector',
+    'mfussenegger/nvim-dap',
+    'jay-babu/mason-nvim-dap.nvim',
   },
   {
     'romgrk/barbar.nvim',
