@@ -497,6 +497,11 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
+      -- NOTE: custom keymaps for telescope
+      -- START_CUSTOM_KEYMAPS
+      vim.api.nvim_set_keymap('n', '<Leader>sx', ':Telescope find_files no_ignore=true<CR>', { noremap = true, silent = true })
+      -- END_CUSTOM_KEYMAPS
+
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.
@@ -820,7 +825,7 @@ require('lazy').setup({
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { c = true, cpp = true }
+        local disable_filetypes = { c = false, cpp = false }
         if disable_filetypes[vim.bo[bufnr].filetype] then
           return nil
         else
@@ -832,11 +837,22 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        cpp = { 'clang-format' },
+        c = { 'clang-format' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
+
+        -- Use the "_" filetype to run formatters on filetypes that don't
+        -- have other formatters configured.
+        -- ['_'] = { 'trim_whitespace' },
+      },
+      formatters = {
+        clang_format = {
+          prepend_args = { '--style=file' },
+        },
       },
     },
   },
@@ -1065,6 +1081,32 @@ require('lazy').setup({
   --   lazy = false, -- This plugin is already lazy
   -- },
 
+  {
+    'danymat/neogen',
+    config = true,
+    -- Uncomment next line if you want to follow only stable versions
+    -- version = "*"
+    keys = {
+      vim.api.nvim_set_keymap('n', '<Leader>nf', ":lua require('neogen').generate()<CR>", { noremap = true, silent = true }),
+    },
+  },
+  {
+    'kawre/neotab.nvim',
+    event = 'InsertEnter',
+    opts = {
+      -- configuration goes here
+    },
+  },
+  {
+    'm4xshen/autoclose.nvim',
+    config = function()
+      require('autoclose').setup()
+    end,
+  },
+  -- {
+  --   'mfulz/cscope.nvim',
+  -- },
+
   -- THEMES_BEGIN
   -- The lines below are a little cursed, the final one in this list will apply as the default theme
   -- if it has `priority = 1000`
@@ -1164,6 +1206,26 @@ require('lazy').setup({
       }
     end,
     dependencies = { { 'nvim-tree/nvim-web-devicons' } },
+  },
+  {
+    'kdheepak/lazygit.nvim',
+    lazy = true,
+    cmd = {
+      'LazyGit',
+      'LazyGitConfig',
+      'LazyGitCurrentFile',
+      'LazyGitFilter',
+      'LazyGitFilterCurrentFile',
+    },
+    -- optional for floating window border decoration
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    -- setting the keybinding for LazyGit with 'keys' is recommended in
+    -- order to load the plugin when the command is run for the first time
+    keys = {
+      { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
+    },
   },
   {
     'epwalsh/obsidian.nvim',
