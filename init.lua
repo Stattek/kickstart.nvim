@@ -1128,6 +1128,7 @@ require('lazy').setup({
   },
   {
     'mfussenegger/nvim-dap',
+    'jay-babu/mason-nvim-dap.nvim',
   },
   {
     'romgrk/barbar.nvim',
