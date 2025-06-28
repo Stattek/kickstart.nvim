@@ -127,12 +127,6 @@ vim.o.softtabstop = 4 -- number of spaces inserted instead of a tab
 vim.o.shiftwidth = 4 -- number of spaces inserted when indenting
 vim.o.wildmode = 'full'
 
--- automatically turn on hints, kinda buggy for rust, maybe better to
--- just manually turn on inlay hints when editing a file
--- if vim.lsp.inlay_hint then
---   vim.lsp.inlay_hint.enable(true, { 0 })
--- end
-
 -- Save undo history
 vim.o.undofile = true
 
@@ -147,7 +141,7 @@ vim.o.signcolumn = 'yes'
 vim.o.updatetime = 250
 
 -- conceal level for obsidian
-vim.opt.conceallevel = 1
+vim.opt.conceallevel = 1 -- TODO: is this needed anymore?
 
 -- Decrease mapped sequence wait time
 vim.o.timeoutlen = 300
@@ -219,51 +213,6 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
-
--- START_CUSTOM_KEYMAPS
--- WARNING: My custom debug keymaps may conflict with builtin keymaps
-vim.keymap.set('n', '<F5>', function()
-  require('dap').continue()
-end)
-vim.keymap.set('n', '<F10>', function()
-  require('dap').step_over()
-end)
-vim.keymap.set('n', '<F11>', function()
-  require('dap').step_into()
-end)
-vim.keymap.set('n', '<F12>', function()
-  require('dap').step_out()
-end)
-vim.keymap.set('n', '<Leader>b', function()
-  require('dap').toggle_breakpoint()
-end, { desc = 'Toggle Breakpoint' })
-vim.keymap.set('n', '<Leader>B', function()
-  require('dap').set_breakpoint()
-end, { desc = 'Breakpoint' })
-vim.keymap.set('n', '<Leader>lp', function()
-  require('dap').set_breakpoint(nil, nil, vim.fn.input 'Log point message: ')
-end, { desc = 'Debugger Set Breakpoint With Log Message' })
-vim.keymap.set('n', '<Leader>dr', function()
-  require('dap').repl.open()
-end, { desc = 'Debug Run' })
-vim.keymap.set('n', '<Leader>dl', function()
-  require('dap').run_last()
-end, { desc = 'Run Last Debug Config' })
-vim.keymap.set({ 'n', 'v' }, '<Leader>dh', function()
-  require('dap.ui.widgets').hover()
-end, { desc = 'Debugger Hover Open' })
-vim.keymap.set({ 'n', 'v' }, '<Leader>dp', function()
-  require('dap.ui.widgets').preview()
-end, { desc = 'Debugger Open Preview' })
-vim.keymap.set('n', '<Leader>df', function()
-  local widgets = require 'dap.ui.widgets'
-  widgets.centered_float(widgets.frames)
-end, { desc = 'Debugger Frames' })
-vim.keymap.set('n', '<Leader>ds', function()
-  local widgets = require 'dap.ui.widgets'
-  widgets.centered_float(widgets.scopes)
-end, { desc = 'Debugger Scopes' })
--- END_CUSTOM_KEYMAPS
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -742,6 +691,7 @@ require('lazy').setup({
           vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true }),
         },
         rust_analyzer = {},
+        -- java_language_server = {},
         -- gopls = {},
         -- pyright = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -1056,7 +1006,7 @@ require('lazy').setup({
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-  -- require 'kickstart.plugins.debug',
+  require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
@@ -1074,13 +1024,12 @@ require('lazy').setup({
   -- In normal mode type `<space>sh` then write `lazy.nvim-plugin`
   -- you can continue same window with `<space>sr` which resumes last telescope search
 
-  -- NOTE: These are my plugins
+  -- MY_PLUGINS_BEGIN
   -- {
   --  'mrcjkb/rustaceanvim',
   --   version = '^5', -- Recommended
   --   lazy = false, -- This plugin is already lazy
   -- },
-
   {
     'danymat/neogen',
     config = true,
@@ -1103,13 +1052,8 @@ require('lazy').setup({
       require('autoclose').setup()
     end,
   },
-  -- {
-  --   'mfulz/cscope.nvim',
-  -- },
 
   -- THEMES_BEGIN
-  -- The lines below are a little cursed, the final one in this list will apply as the default theme
-  -- if it has `priority = 1000`
   {
     'ellisonleao/gruvbox.nvim',
     priority = 1000,
@@ -1169,10 +1113,6 @@ require('lazy').setup({
     end,
   },
   {
-    'mfussenegger/nvim-dap',
-    'jay-babu/mason-nvim-dap.nvim',
-  },
-  {
     'romgrk/barbar.nvim',
     dependencies = {
       'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
@@ -1227,54 +1167,7 @@ require('lazy').setup({
       { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
     },
   },
-  {
-    'epwalsh/obsidian.nvim',
-    version = '*', -- recommended, use latest release instead of latest commit
-    lazy = true,
-    ft = 'markdown',
-    -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
-    -- event = {
-    --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-    --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
-    --   -- refer to `:h file-pattern` for more examples
-    --   "BufReadPre path/to/my-vault/*.md",
-    --   "BufNewFile path/to/my-vault/*.md",
-    -- },
-    dependencies = {
-      -- Required.
-      'nvim-lua/plenary.nvim',
-
-      -- see below for full list of optional dependencies 👇
-    },
-    opts = {
-      workspaces = {
-        {
-          name = 'school',
-          path = '~/Documents/my_stuff/school/Obsidian-Notes/',
-        },
-      },
-      -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
-      -- URL it will be ignored but you can customize this behavior here.
-      ---@param url string
-      follow_url_func = function(url)
-        -- Open the URL in the default web browser.
-        -- vim.fn.jobstart { 'open', url } -- Mac OS
-        vim.fn.jobstart { 'xdg-open', url } -- linux
-        -- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
-        -- vim.ui.open(url) -- need Neovim 0.10.0+
-      end,
-
-      -- Optional, by default when you use `:ObsidianFollowLink` on a link to an image
-      -- file it will be ignored but you can customize this behavior here.
-      ---@param img string
-      follow_img_func = function(img)
-        -- vim.fn.jobstart { 'qlmanage', '-p', img } -- Mac OS quick look preview
-        vim.fn.jobstart { 'xdg-open', url } -- linux
-        -- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
-      end,
-      -- see below for full list of options 👇
-    },
-  },
+  -- MY_PLUGINS_END
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
