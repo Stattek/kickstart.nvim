@@ -594,6 +594,14 @@ require('lazy').setup({
           --  Useful for checking parameters for a function call.
           map('grk', vim.lsp.buf.signature_help, 'Open Signature Help')
 
+          -- Opens outgoing calls for symbol below cursor.
+          --  Useful for checking outgoing function calls.
+          map('grO', vim.lsp.buf.outgoing_calls, 'Open Outgoing Calls')
+
+          -- Opens incoming calls for symbol below cursor.
+          --  Useful for checking incoming function calls.
+          map('grI', vim.lsp.buf.incoming_calls, 'Open Incoming Calls')
+
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
           ---@param client vim.lsp.Client
           ---@param method vim.lsp.protocol.Method
