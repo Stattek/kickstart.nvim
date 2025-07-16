@@ -1205,6 +1205,9 @@ require('lazy').setup({
       },
     },
     cmd = { 'CsvViewEnable', 'CsvViewDisable', 'CsvViewToggle' },
+    keys = {
+      { '<leader>lc', '<cmd>CsvViewToggle<cr>', desc = 'Toggle CsvView' },
+    },
   },
 
   -- MY_PLUGINS_END
