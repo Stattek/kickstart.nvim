@@ -590,6 +590,10 @@ require('lazy').setup({
           --  Useful for looking at documentation.
           map('grl', vim.lsp.buf.hover, 'Open Hover Menu')
 
+          -- Opens signature help hover for symbol below cursor.
+          --  Useful for checking parameters for a function call.
+          map('grk', vim.lsp.buf.signature_help, 'Open Signature Help')
+
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
           ---@param client vim.lsp.Client
           ---@param method vim.lsp.protocol.Method
