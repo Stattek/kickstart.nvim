@@ -586,6 +586,10 @@ require('lazy').setup({
           --  the definition of its *type*, not where it was *defined*.
           map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
+          -- Opens hover menu for symbol below cursor.
+          --  Useful for looking at documentation.
+          map('grl', vim.lsp.buf.hover, 'Open Hover Menu')
+
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
           ---@param client vim.lsp.Client
           ---@param method vim.lsp.protocol.Method
@@ -691,7 +695,9 @@ require('lazy').setup({
           vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true }),
         },
         rust_analyzer = {},
-        -- java_language_server = {},
+        java_language_server = {},
+        ts_ls = {},
+        svelte = {},
         -- gopls = {},
         -- pyright = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
