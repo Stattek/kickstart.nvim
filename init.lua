@@ -1027,9 +1027,9 @@ require('lazy').setup({
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'kickstart.plugins.autopairs',
+  require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
@@ -1064,14 +1064,8 @@ require('lazy').setup({
       -- configuration goes here
     },
   },
-  {
-    'm4xshen/autoclose.nvim',
-    config = function()
-      require('autoclose').setup()
-    end,
-  },
 
-  -- THEMES_BEGIN
+  -- MY_THEMES_BEGIN
   {
     'ellisonleao/gruvbox.nvim',
     priority = 1000,
@@ -1082,7 +1076,13 @@ require('lazy').setup({
     'olimorris/onedarkpro.nvim',
     priority = 1000, -- Ensure it loads first
   },
-  -- THEMES_END
+  { 'EdenEast/nightfox.nvim' }, -- nightfox themes https://github.com/EdenEast/nightfox.nvim
+  { 'nyoom-engineering/oxocarbon.nvim' }, -- https://github.com/nyoom-engineering/oxocarbon.nvim
+  { 'rose-pine/neovim' }, -- https://github.com/rose-pine/neovim
+  { 'savq/melange-nvim' }, -- https://github.com/savq/melange-nvim
+  { 'xero/miasma.nvim' }, -- https://github.com/xero/miasma.nvim
+  { 'catppuccin/nvim' }, -- https://github.com/catppuccin/nvim
+  -- MY_THEMES_END
 
   {
     'nvim-neo-tree/neo-tree.nvim',
@@ -1105,19 +1105,17 @@ require('lazy').setup({
       vim.cmd [[colorscheme aura-dark]]
     end,
   },
-  { 'EdenEast/nightfox.nvim' }, -- nightfox themes https://github.com/EdenEast/nightfox.nvim
   {
     'zaldih/themery.nvim',
     lazy = false,
     config = function()
       require('themery').setup {
         themes = {
+          -- dark mode themes
           'gruvbox',
           'tokyonight',
           'aura-dark',
           'nightfox',
-          'dayfox',
-          'dawnfox',
           'duskfox',
           'nordfox',
           'terafox',
@@ -1125,6 +1123,21 @@ require('lazy').setup({
           'onedark',
           'onedark_dark',
           'onedark_vivid',
+          'catppuccin',
+          'catppuccin-mocha',
+          'catppuccin-macchiato',
+          'catppuccin-frappe',
+          'oxocarbon',
+          'rose-pine',
+          'rose-pine-moon',
+          'rose-pine-main',
+          'melange',
+          'miasma',
+          -- light mode themes
+          'catppuccin-latte',
+          'rose-pine-dawn',
+          'dayfox',
+          'dawnfox',
         },
         livePreview = true,
       }
@@ -1154,13 +1167,18 @@ require('lazy').setup({
     },
     version = '^1.0.0', -- optional: only update when a new 1.x version is released
   },
-  {
+  { -- https://github.com/nvimdev/dashboard-nvim
     'nvimdev/dashboard-nvim',
     event = 'VimEnter',
     config = function()
       require('dashboard').setup {
-        -- config
         theme = 'hyper',
+        config = {
+          week_header = {
+            enable = true,
+          },
+          footer = { '🇺🇸' },
+        },
       }
     end,
     dependencies = { { 'nvim-tree/nvim-web-devicons' } },
@@ -1183,6 +1201,7 @@ require('lazy').setup({
     -- order to load the plugin when the command is run for the first time
     keys = {
       { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
+      { '<leader>lf', '<cmd>LazyGitCurrentFile<cr>', desc = 'LazyGit Current File' },
     },
   },
   {
@@ -1209,7 +1228,19 @@ require('lazy').setup({
       { '<leader>lc', '<cmd>CsvViewToggle<cr>', desc = 'Toggle CsvView' },
     },
   },
-
+  { -- https://github.com/FabijanZulj/blame.nvim
+    'FabijanZulj/blame.nvim',
+    lazy = false,
+    config = function()
+      require('blame').setup {}
+    end,
+    opts = {
+      date_format = '%m.%d.%Y',
+    },
+    keys = {
+      { '<leader>tB', '<cmd>BlameToggle<cr>', desc = '[T]oggle [B]lame View' },
+    },
+  },
   -- MY_PLUGINS_END
 }, {
   ui = {
