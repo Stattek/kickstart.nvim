@@ -1044,8 +1044,8 @@ require('lazy').setup({
 
   -- MY_PLUGINS_BEGIN
   -- {
-  --  'mrcjkb/rustaceanvim',
-  --   version = '^5', -- Recommended
+  --   'mrcjkb/rustaceanvim',
+  --   version = '^6', -- Recommended
   --   lazy = false, -- This plugin is already lazy
   -- },
   {
