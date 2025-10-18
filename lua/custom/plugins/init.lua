@@ -42,6 +42,8 @@ return {
   { 'savq/melange-nvim' }, -- https://github.com/savq/melange-nvim
   { 'xero/miasma.nvim' }, -- https://github.com/xero/miasma.nvim
   { 'catppuccin/nvim' }, -- https://github.com/catppuccin/nvim
+  { 'rebelot/kanagawa.nvim' }, -- https://github.com/rebelot/kanagawa.nvim
+  { 'vague-theme/vague.nvim' }, -- https://github.com/vague-theme/vague.nvim
   -- MY_THEMES_END
 
   {
@@ -74,6 +76,9 @@ return {
           -- dark mode themes
           'gruvbox',
           'tokyonight',
+          'tokyonight-storm',
+          'tokyonight-night',
+          'tokyonight-moon',
           'aura-dark',
           'nightfox',
           'duskfox',
@@ -93,11 +98,17 @@ return {
           'rose-pine-main',
           'melange',
           'miasma',
+          'kanagawa',
+          'kanagawa-dragon',
+          'kanagawa-wave',
+          'vague',
           -- light mode themes
+          'tokyonight-day',
           'catppuccin-latte',
           'rose-pine-dawn',
           'dayfox',
           'dawnfox',
+          'kanagawa-lotus',
         },
         livePreview = true,
       }
