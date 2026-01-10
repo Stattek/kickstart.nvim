@@ -44,6 +44,8 @@ return {
   { 'catppuccin/nvim' }, -- https://github.com/catppuccin/nvim
   { 'rebelot/kanagawa.nvim' }, -- https://github.com/rebelot/kanagawa.nvim
   { 'vague-theme/vague.nvim' }, -- https://github.com/vague-theme/vague.nvim
+  { 'https://github.com/Shatur/neovim-ayu' }, -- https://github.com/Shatur/neovim-ayu
+  { 'https://github.com/yorumicolors/yorumi.nvim' }, -- https://github.com/yorumicolors/yorumi.nvim
   -- MY_THEMES_END
 
   {
@@ -73,9 +75,9 @@ return {
     config = function()
       require('themery').setup {
         themes = {
-          -- dark mode themes
+          --- dark mode themes
           'gruvbox',
-          'tokyonight',
+          -- 'tokyonight',
           'tokyonight-storm',
           'tokyonight-night',
           'tokyonight-moon',
@@ -102,13 +104,19 @@ return {
           'kanagawa-dragon',
           'kanagawa-wave',
           'vague',
-          -- light mode themes
+          -- 'yorumi',
+          'yorumi-abyss',
+          -- 'ayu',
+          'ayu-dark',
+          'ayu-mirage',
+          --- light mode themes
           'tokyonight-day',
           'catppuccin-latte',
           'rose-pine-dawn',
           'dayfox',
           'dawnfox',
           'kanagawa-lotus',
+          'ayu-light',
         },
         livePreview = true,
       }
