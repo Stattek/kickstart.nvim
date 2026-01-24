@@ -701,17 +701,17 @@ require('lazy').setup({
         --
         --  Feel free to add/remove any LSPs here that you want to install via Mason. They will automatically be installed and setup.
         mason = {
-        clangd = {
-          -- use LSP definition to go to declaration/definition
-          vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', { noremap = true, silent = true }),
-          vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true }),
-        },
-        rust_analyzer = {},
-        java_language_server = {},
-        ts_ls = {},
-        svelte = {},
-        basedpyright = {},
-        gopls = {},
+          clangd = {
+            -- use LSP definition to go to declaration/definition
+            vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', { noremap = true, silent = true }),
+            vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true }),
+          },
+          rust_analyzer = {},
+          java_language_server = {},
+          ts_ls = {},
+          svelte = {},
+          basedpyright = {},
+          gopls = {},
           -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
           --
           -- Some languages (like typescript) have entire language plugins that can be useful:
