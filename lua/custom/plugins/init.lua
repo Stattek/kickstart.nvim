@@ -179,8 +179,8 @@ return {
     -- setting the keybinding for LazyGit with 'keys' is recommended in
     -- order to load the plugin when the command is run for the first time
     keys = {
-      { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
-      { '<leader>lf', '<cmd>LazyGitCurrentFile<cr>', desc = 'LazyGit Current File' },
+      { '<leader>lg', '<cmd>LazyGit<cr>', desc = '[L]azy[G]it' },
+      { '<leader>lf', '<cmd>LazyGitCurrentFile<cr>', desc = '[L]azyGit Current [F]ile' },
     },
   },
   {
@@ -210,9 +210,7 @@ return {
   { -- https://github.com/FabijanZulj/blame.nvim
     'FabijanZulj/blame.nvim',
     lazy = false,
-    config = function()
-      require('blame').setup {}
-    end,
+    config = function() require('blame').setup {} end,
     opts = {
       date_format = '%m.%d.%Y',
     },
