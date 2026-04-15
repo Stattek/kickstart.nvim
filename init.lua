@@ -661,17 +661,17 @@ require('lazy').setup({
       --  See `:help lsp-config` for information about keys and how to configure
       ---@type table<string, vim.lsp.Config>
       local servers = {
-          clangd = {
-            -- use LSP definition to go to declaration/definition
-            vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', { noremap = true, silent = true }),
-            vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true }),
-          },
-          rust_analyzer = {},
-          java_language_server = {},
-          ts_ls = {},
-          svelte = {},
-          basedpyright = {},
-          gopls = {},
+        clangd = {
+          -- use LSP definition to go to declaration/definition
+          vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', { noremap = true, silent = true }),
+          vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true }),
+        },
+        rust_analyzer = {},
+        java_language_server = {},
+        ts_ls = {},
+        svelte = {},
+        basedpyright = {},
+        gopls = {},
         -- Some languages (like typescript) have entire language plugins that can be useful:
         --    https://github.com/pmizio/typescript-tools.nvim
         --
