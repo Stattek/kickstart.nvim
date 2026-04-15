@@ -218,4 +218,7 @@ return {
       { '<leader>tB', '<cmd>BlameToggle<cr>', desc = '[T]oggle [B]lame View' },
     },
   },
+  { -- https://github.com/sindrets/diffview.nvim
+    'sindrets/diffview.nvim',
+  },
 }
