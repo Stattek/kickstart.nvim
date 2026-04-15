@@ -707,7 +707,7 @@ require('lazy').setup({
             vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true }),
           },
           rust_analyzer = {},
-          java_language_server = {},
+          -- java_language_server = {},
           ts_ls = {},
           svelte = {},
           basedpyright = {},
