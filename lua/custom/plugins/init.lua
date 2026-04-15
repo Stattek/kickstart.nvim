@@ -223,4 +223,7 @@ return {
   { -- https://github.com/sindrets/diffview.nvim
     'sindrets/diffview.nvim',
   },
+  { -- https://github.com/hiphish/rainbow-delimiters.nvim
+    'hiphish/rainbow-delimiters.nvim',
+  },
 }
