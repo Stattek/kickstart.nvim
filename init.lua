@@ -672,11 +672,6 @@ require('lazy').setup({
             Lua = {},
           },
         },
-        -- This table contains config for all language servers that are *not* installed via Mason.
-        -- Structure is identical to the mason table from above.
-        others = {
-          -- dartls = {},
-        },
       }
 
       -- Ensure the servers and tools above are installed
