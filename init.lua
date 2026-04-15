@@ -667,7 +667,8 @@ require('lazy').setup({
           vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true }),
         },
         rust_analyzer = {},
-        java_language_server = {},
+        -- NOTE: I don't use java much, so this often fails. Uncomment if using Java.
+        -- java_language_server = {},
         ts_ls = {},
         svelte = {},
         basedpyright = {},
