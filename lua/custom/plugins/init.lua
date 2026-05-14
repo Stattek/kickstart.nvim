@@ -48,6 +48,7 @@ return {
   { 'vague-theme/vague.nvim' }, -- https://github.com/vague-theme/vague.nvim
   { 'https://github.com/Shatur/neovim-ayu' }, -- https://github.com/Shatur/neovim-ayu
   { 'https://github.com/yorumicolors/yorumi.nvim' }, -- https://github.com/yorumicolors/yorumi.nvim
+  { 'https://github.com/rockerBOO/boo-colorscheme-nvim' }, -- https://github.com/rockerBOO/boo-colorscheme-nvim
   -- MY_THEMES_END
 
   {
@@ -79,7 +80,7 @@ return {
         themes = {
           --- dark mode themes
           'gruvbox',
-          -- 'tokyonight',
+          -- tokyonight,
           'tokyonight-storm',
           'tokyonight-night',
           'tokyonight-moon',
@@ -106,9 +107,15 @@ return {
           'kanagawa-dragon',
           'kanagawa-wave',
           'vague',
-          -- 'yorumi',
+          -- boo
+          'boo',
+          'sunset_cloud',
+          'radioactive_waste',
+          'forest_stream',
+          'crimson_moonlight',
+          -- yorumi',
           'yorumi-abyss',
-          -- 'ayu',
+          -- ayu,
           'ayu-dark',
           'ayu-mirage',
           --- light mode themes
