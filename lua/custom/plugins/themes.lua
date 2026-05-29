@@ -169,26 +169,6 @@ do
   vim.keymap.set('n', '<leader>lg', function() lazygit.lazygit() end, { desc = '[L]azy[G]it' })
   vim.keymap.set('n', '<leader>lf', function() lazygit.lazygitcurrentfile() end, { desc = '[L]azyGit Current [F]ile' })
 
-  -- require('lazygit').setup {
-  --   cmd = {
-  --     'LazyGit',
-  --     'LazyGitConfig',
-  --     'LazyGitCurrentFile',
-  --     'LazyGitFilter',
-  --     'LazyGitFilterCurrentFile',
-  --   },
-  --   -- optional for floating window border decoration
-  --   dependencies = {
-  --     'nvim-lua/plenary.nvim',
-  --   },
-  --   -- setting the keybinding for LazyGit with 'keys' is recommended in
-  --   -- order to load the plugin when the command is run for the first time
-  --   keys = {
-  --     { '<leader>lg', '<cmd>LazyGit<cr>', desc =  },
-  --     { '<leader>lf', '<cmd>LazyGitCurrentFile<cr>', desc = '[L]azyGit Current [F]ile' },
-  --   },
-  -- }
-
   -- https://github.com/hat0uma/csvview.nvim
   vim.pack.add { 'https://github.com/hat0uma/csvview.nvim' }
   require('csvview').setup {
