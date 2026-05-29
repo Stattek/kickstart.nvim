@@ -39,6 +39,7 @@ do
     'https://github.com/yorumicolors/yorumi.nvim',
     -- https://github.com/rockerBOO/boo-colorscheme-nvim
     'https://github.com/rockerBOO/boo-colorscheme-nvim',
+    -- TODO: this plugin below is not working right now
     url_helpers.gh 'baliestri/aura-theme',
   }
 
