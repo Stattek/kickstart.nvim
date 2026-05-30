@@ -54,7 +54,7 @@ do
   }
   require('dashboard').setup { -- https://github.com/nvimdev/dashboard-nvim
     theme = 'hyper',
-    -- packages = { enable = true },
+    packages = { enable = true },
     config = {
       week_header = {
         enable = false,
@@ -63,7 +63,6 @@ do
     },
   }
 
-  -- TODO: if this or other plugins slow down nvim, think about lazily loading them with an async queue
   vim.pack.add { url_helpers.gh 'kdheepak/lazygit.nvim', url_helpers.gh 'nvim-lua/plenary.nvim' }
   local lazygit = require 'lazygit'
   vim.keymap.set('n', '<leader>lg', function() lazygit.lazygit() end, { desc = '[L]azy[G]it' })
