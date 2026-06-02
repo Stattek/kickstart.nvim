@@ -818,6 +818,8 @@ do
       cpp = { 'clang-format' },
       c = { 'clang-format' },
       python = { 'black' },
+      -- NOTE: not using rustfmt here because the rust-analyzer provides rustfmt capabilities
+      --
       -- rust = { 'rustfmt' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
