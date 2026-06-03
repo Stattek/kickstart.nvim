@@ -704,6 +704,11 @@ do
   --  See `:help lsp-config` for information about keys and how to configure
   ---@type table<string, vim.lsp.Config>
   local servers = {
+    -- NOTE: when using clangd (and clang-format), if you open nvim
+    -- in a directory, it will search up the file tree for a .clangd or
+    -- .clang-format file. If you're in a mounted directory on another
+    -- drive, clangd may use that instead (particularly annoying if you
+    -- have multiple home directories for different OSes).
     clangd = {},
     basedpyright = {},
     gopls = {},
