@@ -531,9 +531,7 @@ do
   vim.keymap.set('n', '<leader>sc', builtin.commands, { desc = '[S]earch [C]ommands' })
   vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
-  -- NOTE: custom keymaps for telescope
-  -- START_CUSTOM_KEYMAPS
-  -- TODO: fix this to use builtin??
+  -- NOTE: START_CUSTOM_KEYMAPS
   vim.keymap.set('n', '<Leader>sx', ':Telescope find_files no_ignore=true<CR>', { noremap = true, silent = true })
   -- END_CUSTOM_KEYMAPS
 
