@@ -406,7 +406,7 @@ do
   require('todo-comments').setup {
     signs = false,
     keywords = {
-      DEBUG = { color = 'error' },
+      DEBUG = { color = 'error', alt = { 'SAFETY' } },
       FUTURE = {
         color = 'info',
         alt = { 'MAINTENANCE' },
