@@ -1,4 +1,5 @@
----@module Simple setup functions for Neovim's vim.pack plugin manager.
+---@module 'pack_helper' Simple setup functions for Neovim's vim.pack
+---        plugin manager.
 
 local M = {}
 

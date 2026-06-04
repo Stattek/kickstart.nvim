@@ -1,6 +1,6 @@
 -- Plugins specifically for CSV.
 --
-local url_helpers = require 'helpers.url_helpers'
+local url_helper = require 'helpers.url_helper'
 
 do
   -- https://github.com/hat0uma/csvview.nvim

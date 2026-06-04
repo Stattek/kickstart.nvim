@@ -1,4 +1,5 @@
----@module Simple helper functions for creating plugin repository links, e.g. for GitHub.
+---@module 'url_helper' Simple helper functions for creating plugin
+---        repository links, e.g. for GitHub.
 
 local M = {}
 
