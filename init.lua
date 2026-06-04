@@ -328,11 +328,9 @@ do
   })
 end
 
----Because most plugins are hosted on GitHub, you can use the helper
----function to have less repetition in the following sections.
----@param repo string
----@return string
-local function gh(repo) return 'https://github.com/' .. repo end
+-- import url_helper to get repo helper function that is reused elsewhere
+local url_helper = require 'helpers.url_helper'
+local gh = url_helper.gh
 
 -- ============================================================
 -- SECTION 3: UI / CORE UX PLUGINS
