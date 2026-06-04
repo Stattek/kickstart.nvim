@@ -196,6 +196,16 @@ do
     virtual_text = true, -- Text shows up at the end of the line
     virtual_lines = false, -- Text shows up underneath the line, with virtual lines
 
+    -- Use custom signs for diagnostics.
+    signs = vim.g.have_nerd_font and {
+      text = {
+        [vim.diagnostic.severity.ERROR] = '󰅚 ',
+        [vim.diagnostic.severity.WARN] = '󰀪 ',
+        [vim.diagnostic.severity.INFO] = '󰋽 ',
+        [vim.diagnostic.severity.HINT] = '󰌶 ',
+      },
+    } or {},
+
     -- Auto open the float, so you can easily read the errors when jumping with `[d` and `]d`
     jump = {
       on_jump = function(_, bufnr)
@@ -553,6 +563,7 @@ do
       -- This is where a variable was first declared, or where a function is defined, etc.
       -- To jump back, press <C-t>.
       vim.keymap.set('n', 'grd', builtin.lsp_definitions, { buffer = buf, desc = '[G]oto [D]efinition' })
+      vim.keymap.set('n', 'gd', builtin.lsp_definitions, { buffer = buf, desc = '[G]oto [D]efinition' })
 
       -- Fuzzy find all the symbols in your current document.
       -- Symbols are things like variables, functions, types, etc.
@@ -659,6 +670,26 @@ do
       -- WARN: This is not Goto Definition, this is Goto Declaration.
       --  For example, in C this would take you to the header.
       map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+      map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+
+      -- Opens hover menu for symbol below cursor.
+      --  Useful for looking at documentation.
+      map('grl', vim.lsp.buf.hover, 'Open Hover Menu')
+
+      -- Opens signature help hover for symbol below cursor.
+      --  Useful for checking parameters for a function call.
+      map('grk', vim.lsp.buf.signature_help, 'Open Signature Help')
+
+      -- Opens outgoing calls for symbol below cursor.
+      --  Useful for checking outgoing function calls.
+      map('grO', vim.lsp.buf.outgoing_calls, 'Open Outgoing Calls')
+
+      -- Opens incoming calls for symbol below cursor.
+      --  Useful for checking incoming function calls.
+      map('grI', vim.lsp.buf.incoming_calls, 'Open Incoming Calls')
+
+      -- Toggle to show/hide diagnostic messages
+      map('<leader>td', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end, '[T]oggle [D]iagnostics')
 
       -- The following two autocommands are used to highlight references of the
       -- word under your cursor when your cursor rests there for a little while.
