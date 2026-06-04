@@ -7,14 +7,9 @@ local simple_setup = require 'helpers.simple_setup'
 
 do
   vim.pack.add { url_helpers.gh 'danymat/neogen' }
-  require('neogen').setup {
-    config = true,
-    -- Uncomment next line if you want to follow only stable versions
-    -- version = "*"
-    keys = {
-      vim.api.nvim_set_keymap('n', '<Leader>nf', ":lua require('neogen').generate()<CR>", { noremap = true, silent = true }),
-    },
-  }
+  local neogen = require 'neogen'
+  neogen.setup {}
+  vim.keymap.set('n', '<Leader>nf', function() neogen.generate() end, { noremap = true, silent = true })
 
   vim.pack.add { url_helpers.gh 'kawre/neotab.nvim' }
   require('neotab').setup {
