@@ -68,13 +68,6 @@ do
   vim.keymap.set('n', '<leader>lg', function() lazygit.lazygit() end, { desc = '[L]azy[G]it' })
   vim.keymap.set('n', '<leader>lf', function() lazygit.lazygitcurrentfile() end, { desc = '[L]azyGit Current [F]ile' })
 
-  -- https://github.com/FabijanZulj/blame.nvim
-  vim.pack.add { url_helpers.gh 'FabijanZulj/blame.nvim' }
-  require('blame').setup {
-    date_format = '%m.%d.%Y',
-  }
-  vim.keymap.set('n', '<leader>tB', '<cmd>BlameToggle<cr>', { desc = 'Toggle CsvView' })
-
   -- https://github.com/sindrets/diffview.nvim
   simple_setup.vim_pack_add_simple(url_helpers.gh 'sindrets/diffview.nvim', 'diffview')
 
