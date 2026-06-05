@@ -5,10 +5,6 @@
       "src": "https://github.com/L3MON4D3/LuaSnip",
       "version": "2.0.0 - 3.0.0"
     },
-    "aura-theme": {
-      "rev": "c607be79c8eeaa5a5d7ac66421f8b5c51d936fe8",
-      "src": "https://github.com/baliestri/aura-theme"
-    },
     "barbar.nvim": {
       "rev": "a4bef5b4fc1f064f2f673172252028eae18191c9",
       "src": "https://github.com/romgrk/barbar.nvim"
@@ -91,7 +87,7 @@
       "src": "https://github.com/xero/miasma.nvim"
     },
     "mini.nvim": {
-      "rev": "11afe78a10570fe1d0c7ed0b6fc2b5b19098cb45",
+      "rev": "cbae4fa396bbf9c802b3d2dc2e9c5362e8fb9468",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "neo-tree.nvim": {
@@ -205,7 +201,7 @@
       "src": "https://github.com/folke/tokyonight.nvim"
     },
     "vague.nvim": {
-      "rev": "f911602f49116b1ebab95a45391e1cfe2dc62c2b",
+      "rev": "ea1a853fe6ed04c785b6bc2f103f1b5372eadfb8",
       "src": "https://github.com/vague-theme/vague.nvim"
     },
     "which-key.nvim": {
