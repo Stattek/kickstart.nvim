@@ -16,6 +16,10 @@ do
     priority = 1000, -- Ensure it loads first
   }
 
+  -- this theme requires lush.
+  vim.pack.add { 'https://github.com/rktjmp/lush.nvim', 'https://github.com/uloco/bluloco.nvim' }
+  require('bluloco').setup {}
+
   vim.pack.add {
     -- nightfox themes https://github.com/EdenEast/nightfox.nvim
     url_helper.gh 'EdenEast/nightfox.nvim',
@@ -83,6 +87,8 @@ do
       -- ayu,
       'ayu-dark',
       'ayu-mirage',
+      -- bluloco
+      'bluloco-dark',
       --- light mode themes
       'tokyonight-day',
       'catppuccin-latte',
@@ -91,6 +97,7 @@ do
       'dawnfox',
       'kanagawa-lotus',
       'ayu-light',
+      'bluloco-light',
     },
     livePreview = true,
   }

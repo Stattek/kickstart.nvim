@@ -14,6 +14,10 @@
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
+    "bluloco.nvim": {
+      "rev": "4daabf6a9e6b9ecdcb19e7c78e888be0bacd866c",
+      "src": "https://github.com/uloco/bluloco.nvim"
+    },
     "boo-colorscheme-nvim": {
       "rev": "36a52f900f49fe78bfeb30d2519a8dd356bf8fc1",
       "src": "https://github.com/rockerBOO/boo-colorscheme-nvim"
@@ -61,6 +65,10 @@
     "lazygit.nvim": {
       "rev": "a04ad0dbc725134edbee3a5eea29290976695357",
       "src": "https://github.com/kdheepak/lazygit.nvim"
+    },
+    "lush.nvim": {
+      "rev": "9c60ec2279d62487d942ce095e49006af28eed6e",
+      "src": "https://github.com/rktjmp/lush.nvim"
     },
     "mason-lspconfig.nvim": {
       "rev": "21c5b3ebeaa0412e28096bb0701434c51c1fbf76",
