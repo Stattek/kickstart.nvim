@@ -43,6 +43,8 @@ do
     'https://github.com/yorumicolors/yorumi.nvim',
     -- https://github.com/rockerBOO/boo-colorscheme-nvim
     'https://github.com/rockerBOO/boo-colorscheme-nvim',
+    url_helper.gh 'tiagovla/tokyodark.nvim',
+    url_helper.gh 'sainnhe/edge',
   }
 
   vim.pack.add { url_helper.gh 'zaldih/themery.nvim' }
@@ -54,11 +56,13 @@ do
       'tokyonight-storm',
       'tokyonight-night',
       'tokyonight-moon',
+      'tokyodark',
       'nightfox',
       'duskfox',
       'nordfox',
       'terafox',
       'carbonfox',
+      'edge',
       'onedark',
       'onedark_dark',
       'onedark_vivid',
