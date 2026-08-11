@@ -748,7 +748,7 @@ do
     basedpyright = {},
     gopls = {},
     rust_analyzer = {},
-    java_language_server = {},
+    -- java_language_server = {},
     ts_ls = {},
     svelte = {},
     stylua = {}, -- Used to format Lua code
