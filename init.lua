@@ -695,6 +695,9 @@ do
       -- Toggle to show/hide diagnostic messages
       map('<leader>td', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end, '[T]oggle [D]iagnostics')
 
+      -- Show diagnostics under the cursor.
+      map('<leader>d', function() vim.diagnostic.open_float() end, 'Show [D]iagnostics')
+
       -- The following two autocommands are used to highlight references of the
       -- word under your cursor when your cursor rests there for a little while.
       --    See `:help CursorHold` for information about when this is executed
