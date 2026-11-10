@@ -821,7 +821,7 @@ do
     -- have multiple home directories for different OSes).
     clangd = {},
     basedpyright = {},
-    gopls = {},
+    -- gopls = {},
     rust_analyzer = {},
     -- java_language_server = {},
     svelte = {},
