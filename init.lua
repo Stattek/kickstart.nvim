@@ -251,7 +251,7 @@ do
 
   -- exit insert mode easier
   vim.keymap.set('i', '<M-j>', '<Esc>', { desc = 'Exit insert mode' })
-  vim.keymap.set('i', '<M-j>', '<Esc>', { desc = 'Exit visual mode' })
+  vim.keymap.set('v', '<M-j>', '<Esc>', { desc = 'Exit visual mode' })
 
   -- keymaps for navigation without ctrl sinceit hurts
   vim.keymap.set('n', '<M-u>', '<C-u>', { desc = 'Move up half page' })
